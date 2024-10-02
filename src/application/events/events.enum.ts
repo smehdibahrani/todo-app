@@ -1,0 +1,3 @@
+export enum EventsEnum {
+  TODO_ITEM_CREATED_EVENT = 'TODO_ITEM_CREATED_EVENT',
+}
