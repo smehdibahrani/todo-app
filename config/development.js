@@ -5,6 +5,6 @@ module.exports = {
     privateKey: './key/private.key',
     publicKey: './key/public.key',
     algorithm: 'RS256',
-    accessTokenExpire: '24h',
+    accessTokenExpire: '15m',
   },
 };

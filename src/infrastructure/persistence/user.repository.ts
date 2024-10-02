@@ -56,4 +56,8 @@ export class UserRepository implements Repository<UserEntity> {
   async delete(id: string): Promise<void> {
     await this.userModel.findByIdAndDelete(id);
   }
+
+  async deleteByUsername(username: string): Promise<void> {
+    await this.userModel.deleteOne({ username });
+  }
 }

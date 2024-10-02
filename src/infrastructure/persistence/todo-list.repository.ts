@@ -29,7 +29,6 @@ export class TodoListRepository implements Repository<TodoListEntity> {
       .find({ userId })
       .populate('todoItems')
       .exec();
-    console.log(todoLists);
     return todoLists.map((todoList) => this.mapToTodoListEntity(todoList));
   }
 

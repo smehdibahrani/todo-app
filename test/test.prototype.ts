@@ -18,6 +18,7 @@ import { CreateUserHandler } from '../src/application/handlers/user/create-user.
 import { UserRepository } from '../src/infrastructure/persistence/user.repository';
 import { UserAppService } from '../src/application/services/user.service';
 import { AppModule } from '../src/app.module';
+import { DeleteUserHandler } from '../src/application/handlers/user/delete-user.handler';
 
 let app: INestApplication & {
   userAppService: UserAppService;
@@ -33,7 +34,7 @@ beforeAll(async () => {
         { name: TodoItem.name, schema: TodoItemSchema },
       ]),
     ],
-    providers: [CreateUserHandler, UserRepository],
+    providers: [CreateUserHandler, DeleteUserHandler, UserRepository],
   }).compile();
 
   app = module.createNestApplication();
@@ -47,16 +48,9 @@ beforeAll(async () => {
   await app.init();
 });
 
-beforeEach(async () => {
-  //  app.userAppService = app.get(UserAppService);
-});
-
-afterEach(async () => {
-  //await connection.db.collections['User'].drop();
-});
+afterEach(async () => {});
 
 afterAll(async () => {
-  //await connection.db.dropCollection('User');
   await app.close();
 });
 

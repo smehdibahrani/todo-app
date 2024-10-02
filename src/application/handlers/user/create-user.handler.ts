@@ -16,6 +16,6 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
       throw new UserExistsException(command.username);
     }
     const userEntity = new UserEntity('', command.username, command.password);
-    await this.userRepository.create(userEntity);
+    return await this.userRepository.create(userEntity);
   }
 }

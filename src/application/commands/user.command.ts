@@ -4,3 +4,7 @@ export class CreateUserCommand {
     public readonly password: string,
   ) {}
 }
+
+export class DeleteUserCommand {
+  constructor(public readonly username: string) {}
+}

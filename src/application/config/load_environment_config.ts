@@ -21,7 +21,6 @@ export default () => {
     configFilename = existsSync(join('./', configFilename[0]))
       ? configFilename[0]
       : configFilename[1];
-  console.log(configFilename);
   const configData = require(`../../../${configFilename}`);
   return configData as Record<string, any>;
 };

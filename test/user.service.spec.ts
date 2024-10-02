@@ -3,25 +3,16 @@ import { app } from './test.prototype';
 
 describe('UserService', () => {
   let userService: UserAppService;
-  let serverAddress: string;
 
   beforeAll(() => {
     userService = app.userAppService;
-    serverAddress = app.getHttpServer();
   });
-
-  beforeEach(() => {});
 
   it('should add a user', async () => {
-    await userService.create('JohnDoe', '123456');
-    const user = await userService.getUser('JohnDoe');
+    const user = await userService.create('mehdi', '123456');
     expect(user).toHaveProperty('id');
-    expect(user.username).toBe('JohnDoe');
-  });
+    expect(user.username).toBe('mehdi');
 
-  // it('should retrieve all users', () => {
-  //   userService.addUser('JohnDoe');
-  //   userService.addUser('JaneDoe');
-  //   expect(userService.getUsers()).toHaveLength(2);
-  // });
+    await userService.delete(user.username);
+  });
 });
